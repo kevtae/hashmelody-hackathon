@@ -1,0 +1,1567 @@
+{
+    "address": "Hyx4f8rP2wfXWiSp9CPakPbZ13oZLiLJbra7GiHscWkR",
+    "metadata": {
+      "name": "hashmelody",
+      "version": "0.1.0",
+      "spec": "0.1.0",
+      "description": "Created with Anchor"
+    },
+    "instructions": [
+      {
+        "name": "get_token_price",
+        "discriminator": [
+          36,
+          230,
+          212,
+          100,
+          244,
+          228,
+          26,
+          52
+        ],
+        "accounts": [
+          {
+            "name": "mint"
+          },
+          {
+            "name": "oracle",
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [
+                    118,
+                    105,
+                    101,
+                    119,
+                    101,
+                    114,
+                    115,
+                    104,
+                    105,
+                    112,
+                    95,
+                    111,
+                    114,
+                    97,
+                    99,
+                    108,
+                    101
+                  ]
+                },
+                {
+                  "kind": "account",
+                  "path": "mint"
+                }
+              ]
+            }
+          },
+          {
+            "name": "token_program",
+            "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+          }
+        ],
+        "args": [],
+        "returns": "u64"
+      },
+      {
+        "name": "get_vault_balance",
+        "discriminator": [
+          42,
+          94,
+          16,
+          2,
+          169,
+          162,
+          12,
+          134
+        ],
+        "accounts": [
+          {
+            "name": "token_vault",
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [
+                    116,
+                    111,
+                    107,
+                    101,
+                    110,
+                    95,
+                    118,
+                    97,
+                    117,
+                    108,
+                    116
+                  ]
+                },
+                {
+                  "kind": "account",
+                  "path": "mint"
+                }
+              ]
+            }
+          },
+          {
+            "name": "mint"
+          },
+          {
+            "name": "sol_vault_wallet"
+          }
+        ],
+        "args": [],
+        "returns": "u64"
+      },
+      {
+        "name": "initialize_platform",
+        "discriminator": [
+          119,
+          201,
+          101,
+          45,
+          75,
+          122,
+          89,
+          3
+        ],
+        "accounts": [
+          {
+            "name": "authority",
+            "writable": true,
+            "signer": true
+          },
+          {
+            "name": "platform_config",
+            "writable": true,
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [
+                    112,
+                    108,
+                    97,
+                    116,
+                    102,
+                    111,
+                    114,
+                    109,
+                    95,
+                    99,
+                    111,
+                    110,
+                    102,
+                    105,
+                    103
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "system_program",
+            "address": "11111111111111111111111111111111"
+          }
+        ],
+        "args": [
+          {
+            "name": "platform_wallet",
+            "type": "pubkey"
+          },
+          {
+            "name": "oracle_authority",
+            "type": "pubkey"
+          }
+        ]
+      },
+      {
+        "name": "initialize_token_metadata",
+        "discriminator": [
+          38,
+          126,
+          95,
+          111,
+          226,
+          208,
+          123,
+          23
+        ],
+        "accounts": [
+          {
+            "name": "payer",
+            "writable": true,
+            "signer": true
+          },
+          {
+            "name": "mint_authority",
+            "writable": true,
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [
+                    109,
+                    105,
+                    110,
+                    116,
+                    95,
+                    97,
+                    117,
+                    116,
+                    104,
+                    111,
+                    114,
+                    105,
+                    116,
+                    121
+                  ]
+                },
+                {
+                  "kind": "account",
+                  "path": "mint"
+                }
+              ]
+            }
+          },
+          {
+            "name": "mint",
+            "writable": true
+          },
+          {
+            "name": "metadata",
+            "writable": true,
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [
+                    109,
+                    101,
+                    116,
+                    97,
+                    100,
+                    97,
+                    116,
+                    97
+                  ]
+                },
+                {
+                  "kind": "account",
+                  "path": "mint"
+                },
+                {
+                  "kind": "arg",
+                  "path": "id"
+                }
+              ]
+            }
+          },
+          {
+            "name": "system_program",
+            "address": "11111111111111111111111111111111"
+          }
+        ],
+        "args": [
+          {
+            "name": "id",
+            "type": "u64"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "music_uri",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "name": "initialize_token_oracle",
+        "discriminator": [
+          27,
+          83,
+          199,
+          154,
+          139,
+          212,
+          79,
+          94
+        ],
+        "accounts": [
+          {
+            "name": "payer",
+            "writable": true,
+            "signer": true
+          },
+          {
+            "name": "mint",
+            "writable": true
+          },
+          {
+            "name": "oracle",
+            "writable": true,
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [
+                    118,
+                    105,
+                    101,
+                    119,
+                    101,
+                    114,
+                    115,
+                    104,
+                    105,
+                    112,
+                    95,
+                    111,
+                    114,
+                    97,
+                    99,
+                    108,
+                    101
+                  ]
+                },
+                {
+                  "kind": "account",
+                  "path": "mint"
+                }
+              ]
+            }
+          },
+          {
+            "name": "token_vault",
+            "writable": true,
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [
+                    116,
+                    111,
+                    107,
+                    101,
+                    110,
+                    95,
+                    118,
+                    97,
+                    117,
+                    108,
+                    116
+                  ]
+                },
+                {
+                  "kind": "account",
+                  "path": "mint"
+                }
+              ]
+            }
+          },
+          {
+            "name": "system_program",
+            "address": "11111111111111111111111111111111"
+          }
+        ],
+        "args": []
+      },
+      {
+        "name": "mint_token",
+        "discriminator": [
+          172,
+          137,
+          183,
+          14,
+          207,
+          110,
+          234,
+          56
+        ],
+        "accounts": [
+          {
+            "name": "payer",
+            "writable": true,
+            "signer": true
+          },
+          {
+            "name": "mint_authority",
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [
+                    109,
+                    105,
+                    110,
+                    116,
+                    95,
+                    97,
+                    117,
+                    116,
+                    104,
+                    111,
+                    114,
+                    105,
+                    116,
+                    121
+                  ]
+                },
+                {
+                  "kind": "account",
+                  "path": "mint"
+                }
+              ]
+            }
+          },
+          {
+            "name": "mint",
+            "writable": true
+          },
+          {
+            "name": "token_account",
+            "writable": true
+          },
+          {
+            "name": "platform_token_account",
+            "writable": true
+          },
+          {
+            "name": "token_program",
+            "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+          }
+        ],
+        "args": []
+      },
+      {
+        "name": "purchase_token",
+        "discriminator": [
+          119,
+          226,
+          211,
+          96,
+          33,
+          236,
+          251,
+          96
+        ],
+        "accounts": [
+          {
+            "name": "buyer",
+            "writable": true,
+            "signer": true
+          },
+          {
+            "name": "sol_vault_wallet",
+            "writable": true
+          },
+          {
+            "name": "platform_config",
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [
+                    112,
+                    108,
+                    97,
+                    116,
+                    102,
+                    111,
+                    114,
+                    109,
+                    95,
+                    99,
+                    111,
+                    110,
+                    102,
+                    105,
+                    103
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "platform_wallet",
+            "writable": true
+          },
+          {
+            "name": "mint_authority",
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [
+                    109,
+                    105,
+                    110,
+                    116,
+                    95,
+                    97,
+                    117,
+                    116,
+                    104,
+                    111,
+                    114,
+                    105,
+                    116,
+                    121
+                  ]
+                },
+                {
+                  "kind": "account",
+                  "path": "mint"
+                }
+              ]
+            }
+          },
+          {
+            "name": "mint",
+            "writable": true
+          },
+          {
+            "name": "buyer_token_account",
+            "writable": true,
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "account",
+                  "path": "buyer"
+                },
+                {
+                  "kind": "const",
+                  "value": [
+                    6,
+                    221,
+                    246,
+                    225,
+                    215,
+                    101,
+                    161,
+                    147,
+                    217,
+                    203,
+                    225,
+                    70,
+                    206,
+                    235,
+                    121,
+                    172,
+                    28,
+                    180,
+                    133,
+                    237,
+                    95,
+                    91,
+                    55,
+                    145,
+                    58,
+                    140,
+                    245,
+                    133,
+                    126,
+                    255,
+                    0,
+                    169
+                  ]
+                },
+                {
+                  "kind": "account",
+                  "path": "mint"
+                }
+              ],
+              "program": {
+                "kind": "const",
+                "value": [
+                  140,
+                  151,
+                  37,
+                  143,
+                  78,
+                  36,
+                  137,
+                  241,
+                  187,
+                  61,
+                  16,
+                  41,
+                  20,
+                  142,
+                  13,
+                  131,
+                  11,
+                  90,
+                  19,
+                  153,
+                  218,
+                  255,
+                  16,
+                  132,
+                  4,
+                  142,
+                  123,
+                  216,
+                  219,
+                  233,
+                  248,
+                  89
+                ]
+              }
+            }
+          },
+          {
+            "name": "token_vault",
+            "writable": true,
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [
+                    116,
+                    111,
+                    107,
+                    101,
+                    110,
+                    95,
+                    118,
+                    97,
+                    117,
+                    108,
+                    116
+                  ]
+                },
+                {
+                  "kind": "account",
+                  "path": "mint"
+                }
+              ]
+            }
+          },
+          {
+            "name": "vault_token_account",
+            "writable": true
+          },
+          {
+            "name": "oracle",
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [
+                    118,
+                    105,
+                    101,
+                    119,
+                    101,
+                    114,
+                    115,
+                    104,
+                    105,
+                    112,
+                    95,
+                    111,
+                    114,
+                    97,
+                    99,
+                    108,
+                    101
+                  ]
+                },
+                {
+                  "kind": "account",
+                  "path": "mint"
+                }
+              ]
+            }
+          },
+          {
+            "name": "system_program",
+            "address": "11111111111111111111111111111111"
+          },
+          {
+            "name": "token_program",
+            "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+          },
+          {
+            "name": "associated_token_program",
+            "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+          },
+          {
+            "name": "rent",
+            "address": "SysvarRent111111111111111111111111111111111"
+          }
+        ],
+        "args": [
+          {
+            "name": "amount_tokens",
+            "type": "u64"
+          }
+        ]
+      },
+      {
+        "name": "setup_user_accounts",
+        "discriminator": [
+          134,
+          147,
+          92,
+          25,
+          218,
+          44,
+          176,
+          42
+        ],
+        "accounts": [
+          {
+            "name": "payer",
+            "writable": true,
+            "signer": true
+          },
+          {
+            "name": "platform_config",
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [
+                    112,
+                    108,
+                    97,
+                    116,
+                    102,
+                    111,
+                    114,
+                    109,
+                    95,
+                    99,
+                    111,
+                    110,
+                    102,
+                    105,
+                    103
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "platform_wallet"
+          },
+          {
+            "name": "mint",
+            "writable": true
+          },
+          {
+            "name": "token_account",
+            "writable": true,
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "account",
+                  "path": "recipient"
+                },
+                {
+                  "kind": "const",
+                  "value": [
+                    6,
+                    221,
+                    246,
+                    225,
+                    215,
+                    101,
+                    161,
+                    147,
+                    217,
+                    203,
+                    225,
+                    70,
+                    206,
+                    235,
+                    121,
+                    172,
+                    28,
+                    180,
+                    133,
+                    237,
+                    95,
+                    91,
+                    55,
+                    145,
+                    58,
+                    140,
+                    245,
+                    133,
+                    126,
+                    255,
+                    0,
+                    169
+                  ]
+                },
+                {
+                  "kind": "account",
+                  "path": "mint"
+                }
+              ],
+              "program": {
+                "kind": "const",
+                "value": [
+                  140,
+                  151,
+                  37,
+                  143,
+                  78,
+                  36,
+                  137,
+                  241,
+                  187,
+                  61,
+                  16,
+                  41,
+                  20,
+                  142,
+                  13,
+                  131,
+                  11,
+                  90,
+                  19,
+                  153,
+                  218,
+                  255,
+                  16,
+                  132,
+                  4,
+                  142,
+                  123,
+                  216,
+                  219,
+                  233,
+                  248,
+                  89
+                ]
+              }
+            }
+          },
+          {
+            "name": "platform_token_account",
+            "writable": true,
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "account",
+                  "path": "platform_wallet"
+                },
+                {
+                  "kind": "const",
+                  "value": [
+                    6,
+                    221,
+                    246,
+                    225,
+                    215,
+                    101,
+                    161,
+                    147,
+                    217,
+                    203,
+                    225,
+                    70,
+                    206,
+                    235,
+                    121,
+                    172,
+                    28,
+                    180,
+                    133,
+                    237,
+                    95,
+                    91,
+                    55,
+                    145,
+                    58,
+                    140,
+                    245,
+                    133,
+                    126,
+                    255,
+                    0,
+                    169
+                  ]
+                },
+                {
+                  "kind": "account",
+                  "path": "mint"
+                }
+              ],
+              "program": {
+                "kind": "const",
+                "value": [
+                  140,
+                  151,
+                  37,
+                  143,
+                  78,
+                  36,
+                  137,
+                  241,
+                  187,
+                  61,
+                  16,
+                  41,
+                  20,
+                  142,
+                  13,
+                  131,
+                  11,
+                  90,
+                  19,
+                  153,
+                  218,
+                  255,
+                  16,
+                  132,
+                  4,
+                  142,
+                  123,
+                  216,
+                  219,
+                  233,
+                  248,
+                  89
+                ]
+              }
+            }
+          },
+          {
+            "name": "recipient"
+          },
+          {
+            "name": "token_program",
+            "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+          },
+          {
+            "name": "associated_token_program",
+            "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+          },
+          {
+            "name": "system_program",
+            "address": "11111111111111111111111111111111"
+          },
+          {
+            "name": "rent",
+            "address": "SysvarRent111111111111111111111111111111111"
+          }
+        ],
+        "args": []
+      },
+      {
+        "name": "setup_vault_account",
+        "discriminator": [
+          28,
+          22,
+          3,
+          171,
+          34,
+          168,
+          85,
+          169
+        ],
+        "accounts": [
+          {
+            "name": "payer",
+            "writable": true,
+            "signer": true
+          },
+          {
+            "name": "mint",
+            "writable": true
+          },
+          {
+            "name": "token_vault",
+            "writable": true,
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [
+                    116,
+                    111,
+                    107,
+                    101,
+                    110,
+                    95,
+                    118,
+                    97,
+                    117,
+                    108,
+                    116
+                  ]
+                },
+                {
+                  "kind": "account",
+                  "path": "mint"
+                }
+              ]
+            }
+          },
+          {
+            "name": "vault_token_account",
+            "writable": true,
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "account",
+                  "path": "token_vault"
+                },
+                {
+                  "kind": "const",
+                  "value": [
+                    6,
+                    221,
+                    246,
+                    225,
+                    215,
+                    101,
+                    161,
+                    147,
+                    217,
+                    203,
+                    225,
+                    70,
+                    206,
+                    235,
+                    121,
+                    172,
+                    28,
+                    180,
+                    133,
+                    237,
+                    95,
+                    91,
+                    55,
+                    145,
+                    58,
+                    140,
+                    245,
+                    133,
+                    126,
+                    255,
+                    0,
+                    169
+                  ]
+                },
+                {
+                  "kind": "account",
+                  "path": "mint"
+                }
+              ],
+              "program": {
+                "kind": "const",
+                "value": [
+                  140,
+                  151,
+                  37,
+                  143,
+                  78,
+                  36,
+                  137,
+                  241,
+                  187,
+                  61,
+                  16,
+                  41,
+                  20,
+                  142,
+                  13,
+                  131,
+                  11,
+                  90,
+                  19,
+                  153,
+                  218,
+                  255,
+                  16,
+                  132,
+                  4,
+                  142,
+                  123,
+                  216,
+                  219,
+                  233,
+                  248,
+                  89
+                ]
+              }
+            }
+          },
+          {
+            "name": "sol_vault_wallet",
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [
+                    115,
+                    111,
+                    108,
+                    95,
+                    118,
+                    97,
+                    117,
+                    108,
+                    116
+                  ]
+                },
+                {
+                  "kind": "account",
+                  "path": "mint"
+                }
+              ]
+            }
+          },
+          {
+            "name": "token_program",
+            "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+          },
+          {
+            "name": "associated_token_program",
+            "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+          },
+          {
+            "name": "system_program",
+            "address": "11111111111111111111111111111111"
+          },
+          {
+            "name": "rent",
+            "address": "SysvarRent111111111111111111111111111111111"
+          }
+        ],
+        "args": []
+      },
+      {
+        "name": "update_oracle",
+        "discriminator": [
+          112,
+          41,
+          209,
+          18,
+          248,
+          226,
+          252,
+          188
+        ],
+        "accounts": [
+          {
+            "name": "oracle",
+            "writable": true,
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [
+                    118,
+                    105,
+                    101,
+                    119,
+                    101,
+                    114,
+                    115,
+                    104,
+                    105,
+                    112,
+                    95,
+                    111,
+                    114,
+                    97,
+                    99,
+                    108,
+                    101
+                  ]
+                },
+                {
+                  "kind": "account",
+                  "path": "mint"
+                }
+              ]
+            }
+          },
+          {
+            "name": "mint"
+          },
+          {
+            "name": "platform_config",
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [
+                    112,
+                    108,
+                    97,
+                    116,
+                    102,
+                    111,
+                    114,
+                    109,
+                    95,
+                    99,
+                    111,
+                    110,
+                    102,
+                    105,
+                    103
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "authority",
+            "signer": true
+          }
+        ],
+        "args": [
+          {
+            "name": "new_view_count",
+            "type": "u64"
+          }
+        ]
+      },
+      {
+        "name": "update_platform",
+        "discriminator": [
+          46,
+          78,
+          138,
+          189,
+          47,
+          163,
+          120,
+          85
+        ],
+        "accounts": [
+          {
+            "name": "platform_config",
+            "writable": true,
+            "pda": {
+              "seeds": [
+                {
+                  "kind": "const",
+                  "value": [
+                    112,
+                    108,
+                    97,
+                    116,
+                    102,
+                    111,
+                    114,
+                    109,
+                    95,
+                    99,
+                    111,
+                    110,
+                    102,
+                    105,
+                    103
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "name": "authority",
+            "signer": true,
+            "relations": [
+              "platform_config"
+            ]
+          }
+        ],
+        "args": [
+          {
+            "name": "new_platform_wallet",
+            "type": "pubkey"
+          },
+          {
+            "name": "new_oracle_authority",
+            "type": {
+              "option": "pubkey"
+            }
+          }
+        ]
+      }
+    ],
+    "accounts": [
+      {
+        "name": "MintAuthority",
+        "discriminator": [
+          148,
+          0,
+          219,
+          228,
+          254,
+          237,
+          76,
+          128
+        ]
+      },
+      {
+        "name": "PlatformConfig",
+        "discriminator": [
+          160,
+          78,
+          128,
+          0,
+          248,
+          83,
+          230,
+          160
+        ]
+      },
+      {
+        "name": "TokenMetadata",
+        "discriminator": [
+          237,
+          215,
+          132,
+          182,
+          24,
+          127,
+          175,
+          173
+        ]
+      },
+      {
+        "name": "TokenVault",
+        "discriminator": [
+          121,
+          7,
+          84,
+          254,
+          151,
+          228,
+          43,
+          144
+        ]
+      },
+      {
+        "name": "ViewershipOracle",
+        "discriminator": [
+          242,
+          55,
+          212,
+          235,
+          108,
+          23,
+          228,
+          40
+        ]
+      }
+    ],
+    "errors": [
+      {
+        "code": 6000,
+        "name": "NameTooLong",
+        "msg": "Name must be between 1 and 32 characters"
+      },
+      {
+        "code": 6001,
+        "name": "UriTooLong",
+        "msg": "URI must be between 1 and 44 characters"
+      },
+      {
+        "code": 6002,
+        "name": "InvalidDecimals",
+        "msg": "Decimals must be less than or equal to 9"
+      },
+      {
+        "code": 6003,
+        "name": "InvalidNameCharacters",
+        "msg": "Name can only contain alphanumeric characters and spaces"
+      },
+      {
+        "code": 6004,
+        "name": "InvalidUriFormat",
+        "msg": "URI must start with http://, https://, or ipfs://"
+      },
+      {
+        "code": 6005,
+        "name": "InvalidAmount",
+        "msg": "Invalid amount provided"
+      },
+      {
+        "code": 6006,
+        "name": "InsufficientFunds",
+        "msg": "Insufficient funds for purchase"
+      },
+      {
+        "code": 6007,
+        "name": "SupplyOverflow",
+        "msg": "Supply calculation overflow"
+      },
+      {
+        "code": 6008,
+        "name": "InvalidViewCount",
+        "msg": "Invalid view count provided"
+      },
+      {
+        "code": 6009,
+        "name": "UnauthorizedOracleUpdate",
+        "msg": "Only platform authority can update oracle"
+      },
+      {
+        "code": 6010,
+        "name": "InvalidPlatformWallet",
+        "msg": "Invalid platform wallet provided"
+      }
+    ],
+    "types": [
+      {
+        "name": "MintAuthority",
+        "type": {
+          "kind": "struct",
+          "fields": [
+            {
+              "name": "bump",
+              "type": "u8"
+            }
+          ]
+        }
+      },
+      {
+        "name": "PlatformConfig",
+        "type": {
+          "kind": "struct",
+          "fields": [
+            {
+              "name": "platform_wallet",
+              "type": "pubkey"
+            },
+            {
+              "name": "oracle_authority",
+              "type": "pubkey"
+            },
+            {
+              "name": "authority",
+              "type": "pubkey"
+            },
+            {
+              "name": "bump",
+              "type": "u8"
+            }
+          ]
+        }
+      },
+      {
+        "name": "PriceParameters",
+        "type": {
+          "kind": "struct",
+          "fields": [
+            {
+              "name": "k",
+              "type": "u64"
+            },
+            {
+              "name": "m",
+              "type": "u64"
+            }
+          ]
+        }
+      },
+      {
+        "name": "TokenMetadata",
+        "type": {
+          "kind": "struct",
+          "fields": [
+            {
+              "name": "mint",
+              "type": "pubkey"
+            },
+            {
+              "name": "id",
+              "type": "u64"
+            },
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "music_uri",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      {
+        "name": "TokenVault",
+        "type": {
+          "kind": "struct",
+          "fields": [
+            {
+              "name": "mint",
+              "type": "pubkey"
+            },
+            {
+              "name": "vault_account",
+              "type": "pubkey"
+            },
+            {
+              "name": "sol_vault_wallet",
+              "type": "pubkey"
+            },
+            {
+              "name": "raydium_pool",
+              "type": {
+                "option": "pubkey"
+              }
+            },
+            {
+              "name": "liquidity_threshold",
+              "type": "u64"
+            },
+            {
+              "name": "total_collected",
+              "type": "u64"
+            },
+            {
+              "name": "bump",
+              "type": "u8"
+            }
+          ]
+        }
+      },
+      {
+        "name": "ViewershipOracle",
+        "type": {
+          "kind": "struct",
+          "fields": [
+            {
+              "name": "mint",
+              "type": "pubkey"
+            },
+            {
+              "name": "view_count",
+              "type": "u64"
+            },
+            {
+              "name": "last_updated",
+              "type": "i64"
+            },
+            {
+              "name": "price_params",
+              "type": {
+                "defined": {
+                  "name": "PriceParameters"
+                }
+              }
+            },
+            {
+              "name": "bump",
+              "type": "u8"
+            }
+          ]
+        }
+      }
+    ]
+  }

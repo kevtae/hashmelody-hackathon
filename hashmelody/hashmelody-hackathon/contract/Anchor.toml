@@ -1,0 +1,24 @@
+[features]
+seeds = false
+skip-lint = false
+
+[programs.localnet]
+hashmelody = "35N9ZFsopSLVcjNRQDNSo77fFAqxmb35W6HUsMtqxgup"
+
+[programs.devnet]
+hashmelody = "2HMH4fCCyEPMpsXhoLbyjXmCkD7sKfFTShSzyPw4jLXh"
+
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "devnet"
+wallet = "./devnet-3.json"  # relative to project root
+
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 'tests/**/*.ts'"
+
+[test]
+startup_wait = 10000
